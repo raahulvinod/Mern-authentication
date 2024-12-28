@@ -6,8 +6,8 @@ import cookieParser from 'cookie-parser';
 import connectDb from './config/connectDb';
 import { APP_ORIGIN, NODE_ENV, PORT } from './constants/env';
 import errorHandler from './middleware/errorHandler';
-import catchError from './utils/catchErrors';
 import { OK } from './constants/http';
+import authRoutes from './routes/auth.route';
 
 const app = express();
 
@@ -24,6 +24,8 @@ app.use(cookieParser());
 app.get('/', (req, res, next) => {
   res.status(OK).json({ message: 'Hello, world' });
 });
+
+app.use('/auth', authRoutes);
 
 app.use(errorHandler);
 
