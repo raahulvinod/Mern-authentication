@@ -7,6 +7,7 @@ import connectDb from './config/connectDb';
 import { APP_ORIGIN, NODE_ENV, PORT } from './constants/env';
 import errorHandler from './middleware/errorHandler';
 import catchError from './utils/catchErrors';
+import { OK } from './constants/http';
 
 const app = express();
 
@@ -21,7 +22,7 @@ app.use(
 app.use(cookieParser());
 
 app.get('/', (req, res, next) => {
-  res.status(200).json({ message: 'Hello, world' });
+  res.status(OK).json({ message: 'Hello, world' });
 });
 
 app.use(errorHandler);
