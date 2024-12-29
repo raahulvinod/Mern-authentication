@@ -20,10 +20,10 @@ const verificationCodeSchema = new mongoose.Schema<VerificationCodeDocument>({
   expiresAt: { type: Date, required: true },
 });
 
-const varificationCodeModel = mongoose.model<VerificationCodeDocument>(
+const verificationCodeModel = mongoose.model<VerificationCodeDocument>(
   'VerificationCode',
   verificationCodeSchema,
   'verification_codes'
 );
 
-export default varificationCodeModel;
+export default verificationCodeModel;
